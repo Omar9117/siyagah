@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صياغة | مساعدك الذكي لتحسين النص العربي</title>
+    <meta name="description" content="أداة ذكية لإعادة صياغة النصوص العربية بالذكاء الاصطناعي مع التحكم في اللهجة والأسلوب والشدة.">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="app-header">
+        <div class="logo-container">
+            <h1 class="logo-title">صياغة ✨</h1>
+            <p class="logo-subtitle">مساعدك الذكي لتحسين النص العربي</p>
+        </div>
+    </header>
+
+    <main class="app-container">
+        <section class="hero-section">
+            <h2 class="hero-headline">خلّي كلامك يوصل بالطريقة الصح</h2>
+            <p class="hero-description">أعد صياغة نصوصك العربية بدقة، اختر بين الفصحى والمصرية، وتحكم بأسلوب وشدة إعادة الصياغة بدون تغيير المعنى.</p>
+        </section>
+
+        <!-- Controls Bar -->
+        <section class="controls-panel" aria-label="إعدادات إعادة الصياغة">
+            <div class="control-group">
+                <label for="dialect-select">اللهجة / الصياغة:</label>
+                <select id="dialect-select" class="custom-select">
+                    <option value="msa" selected>العربية الفصحى</option>
+                    <option value="egyptian">اللهجة المصرية</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label for="style-select">الأسلوب:</label>
+                <select id="style-select" class="custom-select">
+                    <option value="natural" selected>طبيعي وسلس</option>
+                    <option value="academic">أكاديمي واضح</option>
+                    <option value="simple">بسيط ومباشر</option>
+                    <option value="professional">رسمي ومهني</option>
+                </select>
+            </div>
+
+            <div class="control-group intensity-group">
+                <div class="intensity-header">
+                    <label for="intensity-range">شدة الصياغة:</label>
+                    <span id="intensity-val-label" class="intensity-badge">متوسطة (50%)</span>
+                </div>
+                <input type="range" id="intensity-range" min="1" max="100" value="50" class="custom-range">
+            </div>
+        </section>
+
+        <!-- Main Content Area: Input & Output -->
+        <div class="editor-grid">
+            <!-- Input Panel -->
+            <section class="panel input-panel">
+                <div class="panel-header">
+                    <h3>النص الأصلي</h3>
+                    <span id="char-counter" class="char-counter">0 / 12,000</span>
+                </div>
+                <textarea id="input-text" placeholder="اكتب أو الصق النص العربي هنا..." maxlength="12000" aria-label="النص الأصلي"></textarea>
+                <div class="panel-actions">
+                    <button id="btn-clear" class="btn btn-secondary">مسح</button>
+                    <button id="btn-rewrite" class="btn btn-primary">أعد الصياغة ✨</button>
+                </div>
+            </section>
+
+            <!-- Output Panel -->
+            <section class="panel output-panel">
+                <div class="panel-header">
+                    <h3>النص المُعاد صياغته</h3>
+                </div>
+                <div id="output-text" class="output-content placeholder" tabindex="0" aria-label="النص المُعاد صياغته">
+                    ستظهر النتيجة هنا بعد إعادة الصياغة...
+                </div>
+                <div class="panel-actions">
+                    <button id="btn-reuse" class="btn btn-secondary" disabled>نقل إلى المدخلات ↩️</button>
+                    <button id="btn-copy" class="btn btn-secondary" disabled>نسخ 📋</button>
+                    <button id="btn-download" class="btn btn-secondary" disabled>تحميل TXT 💾</button>
+                </div>
+            </section>
+        </div>
+
+        <!-- Status Message Banner -->
+        <div id="status-banner" class="status-banner hidden" role="status" aria-live="polite"></div>
+    </main>
+
+    <footer class="app-footer">
+        <p>مشروع صياغة - حماية كاملة للخصوصية. لا يتم حفظ أو تخزين النصوص المُدخلة.</p>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

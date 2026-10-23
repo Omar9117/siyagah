@@ -1,0 +1,5 @@
+node_modules/
+.wrangler/
+.env
+*.log
+siyagah-online-ai.zip
