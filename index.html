@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0a0d14">
+    <meta name="description" content="صياغة — مساعدك الذكي لتحسين النص العربي وإعادة صياغته مع الحفاظ على المعنى.">
+    <title>صياغة — مساعدك الذكي لتحسين النص العربي</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/config.js"></script>
+    <script defer src="js/app.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">انتقل إلى مساحة الكتابة</a>
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="صياغة — الصفحة الرئيسية">
+        <span class="brand-mark" aria-hidden="true">ص</span>
+        <span class="brand-name">صياغة</span>
+        <span class="brand-divider" aria-hidden="true"></span>
+        <span class="brand-caption">مساعدك الذكي لتحسين النص العربي</span>
+      </a>
+      <span class="header-note"><span class="status-dot" aria-hidden="true"></span> المعنى لك. والصياغة علينا.</span>
+    </header>
+
+    <main id="main">
+      <section class="intro" aria-labelledby="page-title">
+        <div class="intro-copy">
+          <p class="eyebrow"><span class="eyebrow-line" aria-hidden="true"></span> أداة إعادة صياغة عربية</p>
+          <h1 id="page-title">خلّي كلامك <span>يوصل بالطريقة الصح</span></h1>
+          <p class="intro-description">غيّر نبرة كلماتك، لا فكرتك. اختر اللهجة والأسلوب، ودع صياغة تعثر على العبارة الأنسب.</p>
+        </div>
+        <div class="intro-index" aria-hidden="true">
+          <span>01</span>
+          <span class="index-rule"></span>
+          <span>الفكرة أولاً</span>
+        </div>
+      </section>
+
+      <section class="workbench" aria-label="مساحة إعادة الصياغة">
+        <form id="rewrite-form" novalidate>
+          <div class="settings-strip">
+            <fieldset class="setting-group dialect-setting">
+              <legend>اللهجة</legend>
+              <div class="segmented-control">
+                <label class="segment">
+                  <input type="radio" name="dialect" value="msa" checked>
+                  <span>العربية الفصحى</span>
+                </label>
+                <label class="segment">
+                  <input type="radio" name="dialect" value="egyptian">
+                    <span>اللهجة المصرية</span>
+                </label>
+              </div>
+            </fieldset>
+            <div class="setting-group style-setting">
+              <label for="style">الأسلوب</label>
+              <div class="select-wrap">
+                <select id="style" name="style">
+                   <option value="natural">طبيعي وسلس</option>
+                   <option value="academic">أكاديمي واضح</option>
+                   <option value="simple">بسيط ومباشر</option>
+                   <option value="professional">رسمي ومهني</option>
+                </select>
+                <svg aria-hidden="true" viewBox="0 0 16 16" class="chevron"><path d="m4 6 4 4 4-4"/></svg>
+              </div>
+            </div>
+            <div class="setting-group intensity-setting">
+              <div class="intensity-heading">
+                <label for="intensity">قوة التغيير</label>
+                <output id="intensity-value" for="intensity">متوسطة</output>
+              </div>
+              <div class="range-row">
+                <span class="range-end">خفيفة</span>
+                <input id="intensity" name="intensity" type="range" min="1" max="100" value="50" aria-label="قوة إعادة الصياغة">
+                <span class="range-end">قوية</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="editor-grid">
+            <section class="editor-panel source-panel" aria-labelledby="source-heading">
+              <div class="panel-heading">
+                <div class="panel-title">
+                  <span class="panel-number">١</span>
+                  <h2 id="source-heading">نصّك الأصلي</h2>
+                </div>
+                <span class="panel-hint">اكتب أو الصق هنا</span>
+              </div>
+              <label class="visually-hidden" for="source-text">النص الأصلي لإعادة الصياغة</label>
+              <textarea id="source-text" name="text" maxlength="12000" placeholder="ابدأ بفكرتك... سنحافظ على معناها." spellcheck="true" dir="auto"></textarea>
+              <div class="panel-footer">
+                <span id="char-count" class="char-count" aria-live="polite">٠ / ١٢٬٠٠٠ حرف</span>
+                <button id="clear-button" class="text-button clear-button" type="button" disabled>
+                  <svg aria-hidden="true" viewBox="0 0 20 20"><path d="M5 6h10m-9 0 .7 10h6.6L14 6M8 6V4h4v2m-3 3v4m2-4v4"/></svg>
+                  مسح النص
+                </button>
+              </div>
+            </section>
+
+            <section class="editor-panel result-panel" aria-labelledby="result-heading">
+              <div class="panel-heading">
+                <div class="panel-title">
+                  <span class="panel-number result-number">٢</span>
+                  <h2 id="result-heading">الصياغة الجديدة</h2>
+                </div>
+                <div class="result-actions" aria-label="إجراءات النص الناتج">
+                  <button id="reuse-button" class="icon-button" type="button" disabled aria-label="استخدام الصياغة الجديدة كنص أصلي" title="استخدام كنص أصلي">
+                    <svg aria-hidden="true" viewBox="0 0 20 20"><path d="M4 10h11m-4-4 4 4-4 4M5 4v12"/></svg>
+                  </button>
+                  <button id="copy-button" class="icon-button" type="button" disabled aria-label="نسخ الصياغة الجديدة" title="نسخ">
+                    <svg aria-hidden="true" viewBox="0 0 20 20"><rect x="7" y="7" width="9" height="10" rx="1.5"/><path d="M12 7V4a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h2"/></svg>
+                  </button>
+                  <button id="download-button" class="icon-button" type="button" disabled aria-label="تنزيل الصياغة الجديدة كملف نصي" title="تنزيل ملف نصي">
+                    <svg aria-hidden="true" viewBox="0 0 20 20"><path d="M10 3v9m-3-3 3 3 3-3M4 14v2a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-2"/></svg>
+                  </button>
+                </div>
+              </div>
+              <div id="result-text" class="result-content" dir="auto" aria-live="polite" aria-atomic="true">
+                <p class="empty-message">ستظهر صياغتك الجديدة هنا</p>
+                <span class="empty-rule" aria-hidden="true"></span>
+                <p class="empty-note">ابدأ بنصّك، وسنحافظ على فكرته.</p>
+              </div>
+              <div class="panel-footer result-footer">
+                <span id="result-meta" class="result-meta">بانتظار نصّك</span>
+                <span class="result-mark" aria-hidden="true">صياغة</span>
+              </div>
+            </section>
+          </div>
+
+          <div class="submit-row">
+            <p class="shortcut-hint">Ctrl / <kbd>⌘</kbd><span>+</span><kbd>↵</kbd> لإعادة الصياغة</p>
+            <button id="rewrite-button" class="primary-button" type="submit">
+              <span class="button-label">أعد الصياغة ✨</span>
+              <span class="button-loading" aria-hidden="true">
+                <span class="loading-dots"><i></i><i></i><i></i></span>
+                جارٍ الصياغة
+              </span>
+              <svg class="button-arrow" aria-hidden="true" viewBox="0 0 20 20"><path d="M4 10h11m-4-4 4 4-4 4"/></svg>
+            </button>
+          </div>
+          <p id="app-status" class="app-status" role="status" aria-live="polite" aria-atomic="true"></p>
+        </form>
+      </section>
+
+      <aside class="privacy-note" aria-label="تنبيه الخصوصية">
+        <svg aria-hidden="true" viewBox="0 0 20 20"><path d="M10 2.5 16 5v4.3c0 3.8-2.6 6.7-6 8.2-3.4-1.5-6-4.4-6-8.2V5l6-2.5Z"/><path d="M7.5 10.1 9.2 12l3.4-3.7"/></svg>
+        <p><strong>خصوصيتك تهمّنا.</strong> يُرسل النص إلى مزوّد ذكاء اصطناعي خارجي لإعادة صياغته. لا ترسل معلومات سرية أو شخصية.</p>
+      </aside>
+    </main>
+
+    <footer class="site-footer">
+      <span>صياغة <span class="footer-separator">/</span> مساحة للكلمة العربية</span>
+      <span>اكتب بحرية. واحتفظ بمعناك.</span>
+    </footer>
+  </body>
+</html>

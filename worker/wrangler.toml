@@ -1,0 +1,9 @@
+name = "siyagah-api"
+main = "worker.js"
+compatibility_date = "2026-10-24"
+workers_dev = true
+
+[vars]
+# Replace with the exact origin of your GitHub Pages site.
+# For a project site such as https://owner.github.io/repo/, use https://owner.github.io
+ALLOWED_ORIGINS = "https://YOUR-USERNAME.github.io"
