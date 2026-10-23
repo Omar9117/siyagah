@@ -3,6 +3,7 @@ main = "worker.js"
 compatibility_date = "2024-01-01"
 
 [vars]
-ALLOWED_ORIGIN = "https://YOUR-USERNAME.github.io" # Replace with your exact GitHub Pages origin
+ALLOWED_ORIGIN = "https://omar9117.github.io"
+
 [ai]
 binding = "AI"
